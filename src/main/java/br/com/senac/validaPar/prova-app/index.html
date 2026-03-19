@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <script>
+        function validar() {
+            const operacoesPermitidas = ["somar", "subtrair", "dividir", "multiplicar"]
+            const numero1 = document.getElementById("input-numero-1").value;
+
+            if (!numero1 || numero1 === "0") {
+                alert("Numero 1 informado é invalido");
+                return;
+            }
+
+            axios.get(`http://localhost:8080/prova/validarNumero?numero=${numero1}`)
+                .then(response => {
+                    if (response.status === 200) {
+                        alert(`Numero é: ${response.data.imparPar}. Resto Divisão: ${response.data.restoDivisao}`);
+                    }
+                })
+                .catch(error => {
+                    console.error('Erro na requisição:', error);
+                    alert("Erro na requisição: " + error);
+                });
+
+            return;
+        }
+    </script>
+</head>
+
+<body>
+    <div class="container">
+        <div class="diplay">
+            <div class="numero">
+                <label for="">Numero 1</label>
+                <input type="text" id="input-numero-1">
+            </div>
+        </div>
+
+        <div class="painel">
+            <div class="botao"><button onclick="validar()">Validar</button></div>
+        </div>
+
+    </div>
+</body>
+
+</html>

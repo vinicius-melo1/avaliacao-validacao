@@ -1,0 +1,40 @@
+body {
+    display: flex;
+    width: 100%;
+    justify-content: center;
+}
+
+.diplay {
+    display: flex;
+    border: 2px solid black;
+    padding: 20px;
+    background-color: grey;
+    flex-direction: column;
+    border-radius: 5px;
+    margin-bottom: 10px;
+    width: auto;
+}
+
+.numero {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 10px;
+}
+
+.painel {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    width: auto;
+    text-align: center;
+    gap: 2px;
+    border: 2px solid black;
+    border-radius: 5px;
+    padding: 10px;
+    background-color: grey;
+    margin-bottom: 10px;
+}
+
+
+.botao button {
+    width: 100%;
+}
